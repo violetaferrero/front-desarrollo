@@ -123,7 +123,7 @@ h1 {
     display: flex; /* Cambia 'left' por 'flex' para usar las propiedades de Flexbox */
     flex-direction: column; /* Organiza los elementos en una columna */
     align-items: center; /* Centra los elementos horizontalmente */
-    width: 400px;
+    width: 300px;
   }
   
   .izquierda .logo {
@@ -188,13 +188,7 @@ h1 {
     margin: 5px; /* agrega un margen al rededor*/
 }
 
-/* Estilo para la tabla */
-.tabla {
-    width: 100%; /* Ajustar al ancho del contenedor */
-    border-collapse: collapse; /* Eliminar el espacio entre bordes */
-    text-align: center; /* Centrar el texto en las celdas */
-    width: 800px;
-}
+
 
   /* Bordes para celdas */
 .tabla th,

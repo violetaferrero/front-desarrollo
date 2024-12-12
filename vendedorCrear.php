@@ -29,13 +29,13 @@ $result = $conn->query($sql);
     <title>Crear Vendedor</title>
 </head>
 <body>
-    <header class="header">
+<header class="header">
         <ul class="menu-ul">
-            <li><a href="index.html">Inicio</a></li>
-            <li><a href="vendedorCrear.html">Crear Vendedor</a></li>
-            <li><a href="buscar.html">Buscar Vendedor</a></li>
-            <li><a href="eliminar.html">Eliminar Vendedor</a></li>
-            <li><a href="vendedorListar.html">Listar Vendedores</a></li>
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="vendedor1.php">Menú Vendedor</a></li>
+            <li><a href="cliente.php">Menú Cliente</a></li>
+            <li><a href="pedido.php">Menú Pedido</a></li>
+            <li><a href="itemMenu.php">Menú Item menu</a></li>
         </ul>
     </header>
 
