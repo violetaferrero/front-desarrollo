@@ -50,21 +50,22 @@ h1 {
 /* Contenedor principal */
 .container {
     display: grid;
-    grid-template-columns: 2fr 1fr; /* Entradas ocupan más espacio que el logo */
+    grid-template-columns: 1fr 2fr 2fr; /* Entradas ocupan más espacio que el logo */
     align-items: center;
     justify-content: center;
     gap: 5px; /* Espacio entre columnas */
-    width: 70%;
-    margin: 20px;
-    padding: 20px;
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
     border: 1px solid #4c692ac9;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(184, 235, 183, 0.1);
     background-color: #ffffff;
+
 }
 
 /* Estilo para las entradas */
-.entradas p {
+.entradas p{
     margin: 10px 0;
 }
 
@@ -76,7 +77,25 @@ h1 {
 }
 
 .entradas input {
-    width: 100%;
+    width: 90%;
+    padding: 8px;
+    border: 1px solid #d6f1b3;
+    border-radius: 5px;
+    font-size: 14px;
+}
+.tres-entrada p{
+    margin: 10px 0;
+}
+
+.tres-entrada label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2d3f19;
+}
+
+.tres-entrada input {
+    width: 90%;
     padding: 8px;
     border: 1px solid #d6f1b3;
     border-radius: 5px;
@@ -87,7 +106,8 @@ h1 {
 .botones-acep-cancel {
     margin-top: 20px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    gap: 10px; /* Espacio entre los botones */
 }
 
 .botones-acep-cancel button {
@@ -118,7 +138,7 @@ h1 {
 
 /* Estilo para el logo */
 .logo {
-    max-width: 30%;
+    max-width: 60%;
     height: auto;
     align-self: center;
     justify-self: center;
