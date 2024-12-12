@@ -53,7 +53,7 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 5px; /* Espacio entre columnas */
-    width: 80%;
+    width: 90%;
     margin: 10px;
     padding: 10px;
     border: 1px solid #4c692ac9;
@@ -64,11 +64,18 @@ h1 {
 }
 /* Estilo para el logo */
 .logo {
-    max-width: 60%;
+    max-width: 70%;
     height: auto;
     align-self: center;
     justify-self: center;
 }
+
+.icono-accion {
+    width: 30px;
+    height: 30px;
+    cursor: pointer; /* Para mantener el puntero interactivo */
+}
+
 
 /* Botones */
 .botones-acep-cancel {
@@ -113,17 +120,61 @@ h1 {
     border-radius: 5px;	
 }
 .izquierda {
-    display: left;
-    flex-direction: column; /* Establecemos la dirección principal como columna */
-    align-items: center; /* Centramos los elementos horizontalmente */
-}
+    display: flex; /* Cambia 'left' por 'flex' para usar las propiedades de Flexbox */
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 400px;
+  }
+  
+  .izquierda .logo {
+    margin: 0 auto; /* Esto asegura que la imagen esté centrada dentro de su contenedor */
+  }
+  
 .busqueda {
-    display: flex; /* Hacemos que los elementos dentro de .busqueda sean*/
-    margin-bottom: 20px; /* Agregamos un margen inferior para separar de "CREAR NUEVO VENDEDOR" */
-    /* Si quieres que el input y el botón estén centrados verticalmente dentro de .busqueda */
-    align-items: center;
-    margin: 0 3px; /* Agregamos un margen izquierdo y derecho para separar el input del botón */
-}
+    display: flex;
+    flex-direction: column; /* Organiza los elementos de manera vertical */
+    align-items: center;    /* Centra los elementos horizontalmente */
+    margin-bottom: 20px;
+  }
+  
+  .busqueda button {
+    margin: 10px 0; /* Espacio entre los botones */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    font-size: 16px; /* Tamaño del texto */
+    border: 1px solid #ccc; /* Borde de los botones */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #007bff; /* Fondo del botón */
+    cursor: pointer; /* Cambia el puntero al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  .busqueda button:hover {
+    background-color: #0056b3; /* Color del fondo al hacer hover */
+  }
+  
+
+  input[type="text"] {
+    width: 100%; /* Hace que ocupe el ancho completo del contenedor */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de texto */
+    background-color: #f9f9f9; /* Fondo del input */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    transition: border-color 0.3s ease; /* Transición suave para el cambio de borde */
+  }
+  
+  input[type="text"]:focus {
+    border-color: #007bff; /* Cambia el color del borde al hacer foco */
+    outline: none; /* Elimina el borde por defecto al hacer foco */
+  }
+  
+  input[type="text"]::placeholder {
+    color: #888; /* Color del texto del placeholder */
+    font-style: italic; /* Estilo en cursiva para el placeholder */
+  }
+  
+  
 
 .izquierda button {
     min-width: 50px; /* Establece un ancho mínimo, puedes ajustarlo según tus necesidades */
@@ -142,6 +193,7 @@ h1 {
     width: 100%; /* Ajustar al ancho del contenedor */
     border-collapse: collapse; /* Eliminar el espacio entre bordes */
     text-align: center; /* Centrar el texto en las celdas */
+    width: 800px;
 }
 
   /* Bordes para celdas */
