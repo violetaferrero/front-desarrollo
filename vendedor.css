@@ -1,0 +1,158 @@
+/*encabezado*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #4c692ac9 2px solid;
+}
+.menu-ul {
+    display: flex;
+    justify-content: flex-start;
+}
+ul li {
+    list-style: none;
+    border: solid 2px;
+    border-bottom: solid 4px;
+    color: #4c692ac9;
+}
+
+ul li:hover {
+    background-color: #abec5667;
+    border: 2px solid #b3ec68;
+}
+
+ul li a{
+    color:#2d3f19;
+    margin: 40px;
+    padding: 10px;
+    text-decoration: none;
+}
+/* ^ ENCABEZADO ^ */
+
+/* Estilo base para la página */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2d3f19;
+}
+
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Entradas ocupan más espacio que el logo */
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espacio entre columnas */
+    width: 80%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #4c692ac9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(184, 235, 183, 0.1);
+    background-color: #ffffff;
+
+}
+/* Estilo para el logo */
+.logo {
+    max-width: 60%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+/* Botones */
+.botones-acep-cancel {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones-acep-cancel {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #f03c2fd8;
+    color: #000000;
+}
+
+.btn-aceptar {
+    background-color: #5fd841d8;
+    color: #000000;
+}
+
+.btn-cancelar:hover {
+    background-color: #d32f2f;
+}
+
+.btn-aceptar:hover {
+    background-color: #388E3C;
+}
+
+.tabla button {
+    width: 100px;
+    height: 30px;
+    border: 2px solid #b3ec68;
+    background-color: #c9ee99;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;	
+}
+.izquierda {
+    display: left;
+    flex-direction: column; /* Establecemos la dirección principal como columna */
+    align-items: center; /* Centramos los elementos horizontalmente */
+}
+.busqueda {
+    display: flex; /* Hacemos que los elementos dentro de .busqueda sean*/
+    margin-bottom: 20px; /* Agregamos un margen inferior para separar de "CREAR NUEVO VENDEDOR" */
+    /* Si quieres que el input y el botón estén centrados verticalmente dentro de .busqueda */
+    align-items: center;
+    margin: 0 3px; /* Agregamos un margen izquierdo y derecho para separar el input del botón */
+}
+
+.izquierda button {
+    min-width: 50px; /* Establece un ancho mínimo, puedes ajustarlo según tus necesidades */
+    padding: 10px;
+    height: 40px;
+    border: 2px solid #b3ec68;
+    background-color: #c9ee99;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;	
+    margin: 5px; /* agrega un margen al rededor*/
+}
+
+/* Estilo para la tabla */
+.tabla {
+    width: 100%; /* Ajustar al ancho del contenedor */
+    border-collapse: collapse; /* Eliminar el espacio entre bordes */
+    text-align: center; /* Centrar el texto en las celdas */
+}
+
+  /* Bordes para celdas */
+.tabla th,
+.tabla td {
+    border: 1px solid #2d3f19; /* Bordes de las celdas */
+    padding: 10px; /* Espaciado interno */
+}
+  /* Estilo para el encabezado */
+.tabla thead tr th {
+    background-color: #c9ee99; /* Color de fondo del encabezado */
+    color: #2d3f19; /* Color del texto */
+    font-weight: bold; /* Negrita */
+}

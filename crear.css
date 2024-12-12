@@ -1,0 +1,132 @@
+
+/*encabezado*/
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: #4c692ac9 2px solid;
+}
+.menu-ul {
+    display: flex;
+    justify-content: flex-start;
+}
+ul li {
+    list-style: none;
+    border: solid 2px;
+    border-bottom: solid 4px;
+    color: #4c692ac9;
+}
+
+ul li:hover {
+    background-color: #abec5667;
+    border: 2px solid #b3ec68;
+}
+
+ul li a{
+    color:#2d3f19;
+    margin: 40px;
+    padding: 10px;
+    text-decoration: none;
+}
+/* ^ ENCABEZADO ^ */
+
+/* Estilo base para la página */
+body {
+    font-family: 'Noto Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2d3f19;
+}
+
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Entradas ocupan más espacio que el logo */
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espacio entre columnas */
+    width: 70%;
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #4c692ac9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(184, 235, 183, 0.1);
+    background-color: #ffffff;
+}
+
+/* Estilo para las entradas */
+.entradas p {
+    margin: 10px 0;
+}
+
+.entradas label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #2d3f19;
+}
+
+.entradas input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d6f1b3;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Botones */
+.botones-acep-cancel {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones-acep-cancel button {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #f03c2fd8;
+    color: #000000;
+}
+
+.btn-aceptar {
+    background-color: #5fd841d8;
+    color: #000000;
+}
+
+.btn-cancelar:hover {
+    background-color: #d32f2f;
+}
+
+.btn-aceptar:hover {
+    background-color: #388E3C;
+}
+
+/* Estilo para el logo */
+.logo {
+    max-width: 30%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+.entradas{
+    text-align: left; /* Alinea las entradas al borde izq */
+    margin-right: 50px;
+}
+
+
