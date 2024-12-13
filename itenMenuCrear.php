@@ -26,7 +26,7 @@ $result = $conn->query($sql);
             margin: 5px 0; /* Separación entre elementos */
         }
     </style>
-    <title>Crear Pedido</title>
+    <title>Crear Item</title>
 </head>
 <body>
 <header class="header">
@@ -39,7 +39,7 @@ $result = $conn->query($sql);
         </ul>
     </header>
 
-    <h1>CREAR NUEVO PEDIDO</h1>
+    <h1>CREAR NUEVO ITEM</h1>
     <div class="container">
 
         <img src="logo.png" alt="logo" class="logo">
@@ -47,24 +47,20 @@ $result = $conn->query($sql);
         <div class="entradas">
             <p>
                 <label for="nombre*" class="colocar_nombre">Nombre</label>
-                <input type="text" name="introducir_nombre" id="nombre" required placeholder="Escribe su nombre">
+                <input type="text" name="introducir_nombre" id="nombre" required placeholder="Escribe el nombre">
             </p>
             <p>
-                <label for="direccion*" class="colocar_direccion">Dirección:</label>
-                <input type="text" name="introducir_direccion" id="direccion" required placeholder="Escribe su direccion">
+                <label for="descripcion*" class="colocar_descripcion">Descripción:</label>
+                <input type="text" name="introducir_descripcion" id="descripcion" required placeholder="Escribe la descripcion">
             </p>
             <p>
-                <label for="coordenadasLat*" class="colocar_latitud">Latitud de coordenada:</label>
-                <input type="text" name="introducir_latitud" id="latitud" required placeholder="Latitud">
-            </p>
-            <p>
-                <label for="coordenadasLong*" class="colocar_longitud">Longitud de coordenada:</label>
-                <input type="text" name="introducir_longitud" id="longitud" required placeholder="Longitud">
+                <label for="precio*" class="colocar_precio">Precio:</label>
+                <input type="text" name="introducir_precio" id="precio" required placeholder="Ingrese el precio">
             </p>
         </div>
 
         <div id="productos-lista">
-            <label for="productos">Selecciona Items:</label>
+            <label for="productos">Selecciona la categoria:</label>
             <ul id="productos">
                 <?php
                 // Verifica si hay resultados y genera la lista dinámicamente
@@ -73,11 +69,11 @@ $result = $conn->query($sql);
                         echo '<li><input type="checkbox" value="' . $row['id_itemMenu'] . '"> ' . htmlspecialchars($row['nombre']) . '</li>';
                     }
                 } else {
-                    echo '<li>No hay productos disponibles</li>';
+                    echo '<li>No hay categorias disponibles</li>';
                 }
                 ?>
             </ul>
-            <button class="boton-agregar" type="button" id="agregar">Agregar al Vendedor</button>
+            <button class="boton-agregar" type="button" id="agregar">Agregar categoria</button>
         </div>
         <div class="espacio-blanco"> </div>
         <div class="espacio-blanco"> </div>

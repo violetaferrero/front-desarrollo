@@ -1,5 +1,3 @@
-
-/*encabezado*/
 /*encabezado*/
 .header {
     display: flex;
@@ -31,66 +29,165 @@ ul li a{
 }
 /* ^ ENCABEZADO ^ */
 
+/* Estilo base para la página */
 body {
-    height: 100%; 
     font-family: 'Noto Sans', sans-serif;
-    background-color: #ffffff; 
-}
-
-input, select {
-    background-color: #e7e3e3; 
-    width: 408px; 
-    height: 40px; 
-    border-radius: 5px;  
-    border-style: solid; 
-    border-width: 1px; 
-    border-color: #000000; 
-    margin-top: 10px;  
-    padding-left: 10px;
-    margin-bottom: 20px; 
-}
-
-.container {
+    margin: 0;
+    padding: 0;
     display: flex;
-    justify-content: center;     /* Centra el contenido verticalmente */
-    align-items: center;         /* Centra el contenido horizontalmente */
-    grid-template-columns: auto auto auto; /* Tres columnas de igual tamaño */
-    width: 70%; /* ancho */
-    padding-top: px;
-    margin: 0 auto;
-    position: relative;
-    gap: 200px
-}
-.botones-menu {
-    display: flex;                 /* Activamos el modelo Flexbox */
-    flex-direction: column;        /* Coloca los botones en una columna (uno encima del otro) */
-    align-items: center;           /* Centra los botones horizontalmente dentro del contenedor */
-    gap: 20px;                     /* Espacio entre los botones */
-    margin-top: 20px;              /* Espacio superior para el contenedor, si es necesario */
+    flex-direction: column;
+    align-items: center;
 }
 
-button {
-    width: 200px;
-    height: 40px;
+/* Título */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #2d3f19;
+}
+
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Entradas ocupan más espacio que el logo */
+    align-items: center;
+    justify-content: center;
+    gap: 5px; /* Espacio entre columnas */
+    width: 90%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #4c692ac9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(184, 235, 183, 0.1);
+    background-color: #ffffff;
+
+}
+/* Estilo para el logo */
+.logo {
+    max-width: 70%;
+    height: auto;
+    align-self: center;
+    justify-self: center;
+}
+
+.icono-accion {
+    width: 30px;
+    height: 30px;
+    cursor: pointer; /* Para mantener el puntero interactivo */
+}
+
+
+/* Botones */
+.botones-acep-cancel {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.botones-acep-cancel {
+    padding: 10px 20px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-cancelar {
+    background-color: #f03c2fd8;
+    color: #000000;
+}
+
+.btn-aceptar {
+    background-color: #5fd841d8;
+    color: #000000;
+}
+
+.btn-cancelar:hover {
+    background-color: #d32f2f;
+}
+
+.btn-aceptar:hover {
+    background-color: #388E3C;
+}
+
+.tabla button {
+    width: 100px;
+    height: 30px;
     border: 2px solid #b3ec68;
     background-color: #c9ee99;
     cursor: pointer;
     transition: background-color 0.2s;
     border-radius: 5px;	
 }
-
-button:hover {
-    background-color: #abec56;
-    border: 2px solid #b3ec68;
-}
-
-h1 {
+.izquierda {
+    display: flex; /* Cambia 'left' por 'flex' para usar las propiedades de Flexbox */
+    flex-direction: column; /* Organiza los elementos en una columna */
+    align-items: center; /* Centra los elementos horizontalmente */
+    width: 300px;
+  }
+  
+  .izquierda .logo {
+    margin: 0 auto; /* Esto asegura que la imagen esté centrada dentro de su contenedor */
+  }
+  
+.busqueda {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #2d3f19;
+    flex-direction: column; /* Organiza los elementos de manera vertical */
+    align-items: center;    /* Centra los elementos horizontalmente */
+    margin-bottom: 20px;
+  }
+  
+  .busqueda button {
+    margin: 10px 0; /* Espacio entre los botones */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    font-size: 16px; /* Tamaño del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 2px solid #b3ec68;
+    background-color: #c9ee99;
+    cursor: pointer; /* Cambia el puntero al pasar por encima */
+    transition: background-color 0.3s ease; /* Transición suave para el color de fondo */
+  }
+  
+  .busqueda button:hover {
+    background-color: #abec5667;
+    border: 2px solid #b3ec68;
+  }
+  
+
+  input[type="text"] {
+    width: 100%; /* Hace que ocupe el ancho completo del contenedor */
+    padding: 10px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de texto */
+    background-color: #f9f9f9; /* Fondo del input */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    transition: border-color 0.3s ease; /* Transición suave para el cambio de borde */
+  }
+  
+.izquierda button {
+    min-width: 50px; /* Establece un ancho mínimo, puedes ajustarlo según tus necesidades */
+    padding: 10px;
+    height: 40px;
+    border: 2px solid #b3ec68;
+    background-color: #c9ee99;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    border-radius: 5px;	
+    margin: 5px; /* agrega un margen al rededor*/
 }
-.logo {
-    width: 400px;
-    justify-self: center;
+
+
+
+  /* Bordes para celdas */
+.tabla th,
+.tabla td {
+    border: 1px solid #2d3f19; /* Bordes de las celdas */
+    padding: 10px; /* Espaciado interno */
+}
+  /* Estilo para el encabezado */
+.tabla thead tr th {
+    background-color: #c9ee99; /* Color de fondo del encabezado */
+    color: #2d3f19; /* Color del texto */
+    font-weight: bold; /* Negrita */
 }

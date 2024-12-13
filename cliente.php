@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="vendedor.css">
+    <link rel="stylesheet" href="menu.css">
     <title>Cliente</title>
     <style>
         .tabla {
@@ -80,7 +80,7 @@ $result = $conn->query($sql);
     <header class="header">
         <ul class="menu-ul">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="vendedor1.php">Menú Vendedor</a></li>
+            <li><a href="vendedor.php">Menú Vendedor</a></li>
             <li><a href="cliente.php">Menú Cliente</a></li>
             <li><a href="pedido.php">Menú Pedido</a></li>
             <li><a href="itemMenu.php">Menú Item menu</a></li>
@@ -103,7 +103,7 @@ $result = $conn->query($sql);
             <table>
                 <thead>
                     <tr>
-                        <th>Identificador</th>
+                        <th>Id</th>
                         <th>Cuit</th>
                         <th>Email</th>
                         <th>Direccion</th>
@@ -130,7 +130,7 @@ $result = $conn->query($sql);
                                 <td class='cell' title='" . htmlspecialchars($row['cbu']) . "'>" . htmlspecialchars($row['cbu']) . "</td>
                                 <td class='cell' title='" . htmlspecialchars($row['longitud']) . "'>" . htmlspecialchars($row['longitud']) . "</td>
                                 <td class='cell' title='" . htmlspecialchars($row['latitud']) . "'>" . htmlspecialchars($row['latitud']) . "</td>
-                                 <td>
+                                <td>
                                     <a href='clienteModificar.php?id={$row['id_cliente']}'>
                                         <img src='avatar-de-usuario.png' alt='Modificar' class='icono-accion'>
                                     </a>

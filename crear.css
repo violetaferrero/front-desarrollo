@@ -1,4 +1,3 @@
-
 /*encabezado*/
 .header {
     display: flex;
@@ -106,16 +105,18 @@ h1 {
 .botones-acep-cancel {
     margin-top: 20px;
     display: flex;
-    justify-content: center;
+    justify-content: right;
     gap: 10px; /* Espacio entre los botones */
 }
 
-.botones-acep-cancel button {
+
+.botones-acep-cancel button{
     padding: 10px 20px;
     font-size: 14px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+
 }
 
 .btn-cancelar {
@@ -135,6 +136,23 @@ h1 {
 .btn-aceptar:hover {
     background-color: #388E3C;
 }
+
+.boton-agregar {
+    border: 2px solid #b3ec68;
+    background-color: #c9ee99;
+    padding: 5px 10px; /* Espaciado interno (alto y ancho) */
+    border: none; /* Quitar borde predeterminado */
+    border-radius: 5px; /* Bordes redondeados */
+    font-size: 16px; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+}
+
+/* Estilo cuando el usuario pasa el mouse sobre el botón */
+.boton-agregar:hover {
+    background-color: #abec5667;
+    border: 2px solid #b3ec68;
+}
+
 
 /* Estilo para el logo */
 .logo {

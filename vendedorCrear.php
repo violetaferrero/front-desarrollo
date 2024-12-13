@@ -32,7 +32,7 @@ $result = $conn->query($sql);
 <header class="header">
         <ul class="menu-ul">
             <li><a href="index.php">Inicio</a></li>
-            <li><a href="vendedor1.php">Menú Vendedor</a></li>
+            <li><a href="vendedor.php">Menú Vendedor</a></li>
             <li><a href="cliente.php">Menú Cliente</a></li>
             <li><a href="pedido.php">Menú Pedido</a></li>
             <li><a href="itemMenu.php">Menú Item menu</a></li>
@@ -77,9 +77,10 @@ $result = $conn->query($sql);
                 }
                 ?>
             </ul>
-            <button id="agregar">Agregar al Vendedor</button>
+            <button class="boton-agregar" type="button" id="agregar">Agregar al Vendedor</button>
         </div>
-
+        <div class="espacio-blanco"> </div>
+        <div class="espacio-blanco"> </div>
         <div class="botones-acep-cancel">
             <button class="btn-cancelar" type="button" id="cancelar">Cancelar</button>
             <button class="btn-aceptar" type="button" id="crear" onclick="">Crear</button>

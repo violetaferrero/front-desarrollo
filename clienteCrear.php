@@ -10,7 +10,7 @@
         <header class="header">
                 <ul class="menu-ul">
                     <li><a href="index.php">Inicio</a></li>
-                    <li><a href="vendedor1.php">Menú Vendedor</a></li>
+                    <li><a href="vendedor.php">Menú Vendedor</a></li>
                     <li><a href="cliente.php">Menú Cliente</a></li>
                     <li><a href="pedido.php">Menú Pedido</a></li>
                     <li><a href="itemMenu.php">Menú Item menu</a></li>

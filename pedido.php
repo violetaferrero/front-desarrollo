@@ -1,256 +1,132 @@
+<?php
+// Incluye la conexión a la base de datos
+include 'db.php';
+//MODIFICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR 
+// Consulta para obtener los datos del pedido
+$sql = "SELECT v.id_vendedor, v.nombre, v.direccion, c.longitud, c.latitud 
+        FROM vendedor v
+        INNER JOIN coordenadas c ON v.id_coordenada = c.id_coordenada";
+
+$result = $conn->query($sql);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="crear.css">
     <link rel="stylesheet" href="menu.css">
     <title>Pedido</title>
     <style>
-        /* Estilos básicos para el modal */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 5% auto;
-            padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
-        }
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
+        .tabla {
+            max-height: 350px;
             overflow-y: auto;
+            max-width: 900px;
+            left: 350px;
+            position: absolute;
+            width: 100%; /* Ajustar al ancho del contenedor */
+            border-collapse: collapse; /* Eliminar el espacio entre bordes */
+            text-align: center; /* Centrar el texto en las celdas */
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
         th, td {
             border: 1px solid #ddd;
-            padding: 8px;
             text-align: left;
+            padding: 8px;
         }
+
         th {
-            background-color: #f2f2f2;
+            background-color: #f4f4f4;
             position: sticky;
             top: 0;
-            z-index: 2;
+            z-index: 1;
         }
-        tbody {
+
+        .tabla tbody {
             display: block;
-            max-height: 300px; /* Limita a 12 filas aproximadamente */
+            max-height: 400px;
             overflow-y: auto;
         }
-        thead, tbody tr {
+
+        .tabla thead, .tabla tbody tr {
             display: table;
             width: 100%;
-            table-layout: fixed;
-        }
-        .input-field {
-            width: calc(100% - 40px);
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        .btn-submit {
-            padding: 10px 20px;
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .btn-submit:hover {
-            background-color: #0056b3;
+            table-layout: fixed; /* Asegura que las columnas tengan el mismo ancho */
         }
     </style>
 </head>
 <body>
-<header class="header">
-    <ul class="menu-ul">
-        <li><a href="index.php">Inicio</a></li>
-        <li><a href="vendedor1.php">Menú Vendedor</a></li>
-        <li><a href="cliente.php">Menú Cliente</a></li>
-        <li><a href="pedido.php">Menú Pedido</a></li>
-        <li><a href="itemMenu.php">Menú Item menu</a></li>
-    </ul>
-</header>
+    <header class="header">
+        <ul class="menu-ul">
+            <li><a href="index.php">Inicio</a></li>
+            <li><a href="vendedor.php">Menú Vendedor</a></li>
+            <li><a href="cliente.php">Menú Cliente</a></li>
+            <li><a href="pedido.php">Menú Pedido</a></li>
+            <li><a href="itemMenu.php">Menú Item menu</a></li>
+        </ul>
+    </header>
 
-<h1>MENÚ PEDIDO</h1>
-<div class="container">
-    <div class="botones-menu"> 
-        <button type="button" id="crearPedido" onclick="location.href='pedidoCrear.php'">CREAR</button>
-        <button type="button" id="buscarPedido" onclick="location.href='pedidoModificar.html'">MODIFICAR</button>
-        <button type="button" id="eliminarPedido">ELIMINAR</button>
-        <button type="button" id="listarPedido">LISTAR</button>
+    <h1>MENÚ PEDIDO</h1>
+    <div class="container">
+        <div class="izquierda">
+            <div class="busqueda">
+                <p>
+                    <input type="text" name="introducir_id" id="id" required placeholder="Introducir id">
+                </p>
+                <button type="button" id="buscar" onclick="location.href=''">BUSCAR</button>
+                <button type="button" id="crear" onclick="location.href='pedidoCrear.php'">CREAR NUEVO PEDIDO</button>
+            </div> 
+                <img src="logo.png" alt="logo" class="logo">
+        </div>    
+        <div class="tabla">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Cliente</th>
+                        <th>Vendedor</th>
+                        <th>Estado</th>
+                        <th>Pago</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    // Verifica si hay resultados
+                    if ($result->num_rows > 0) {
+                        // Genera filas dinámicamente
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<tr>
+                                <td>{$row['id_vendedor']}</td>
+                                <td>" . htmlspecialchars($row['nombre']) . "</td>
+                                <td>" . htmlspecialchars($row['direccion']) . "</td>
+                                <td>{$row['longitud']}</td>
+                                <td>{$row['latitud']}</td>
+                                <td>
+                                    <a href='vendedorModificar.php?id={$row['id_vendedor']}'>
+                                        <img src='avatar-de-usuario.png' alt='Modificar' class='icono-accion'>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href='vendedorEliminar.php?id={$row['id_vendedor']}'>
+                                        <img src='borrar-usuario.png' alt='Eliminar' class='icono-accion'>
+                                    </a>
+                                </td>
+                            </tr>";
+                        }
+                    } else {
+                        echo "<tr><td colspan='7'>No hay vendedores disponibles</td></tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <img src="logo.png" alt="logo" class="logo">
-</div>
-
-<!-- Modal Listar -->
-<div id="modalListar" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Lista de Pedidos</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID Pedido</th>
-                    <th>Estado</th>
-                    <th>ID Cliente</th>
-                    <th>ID Vendedor</th>
-                    <th>ID Pago</th>
-                    <th>Metodo Pago</th>
-                </tr>
-            </thead>
-            <tbody id="tablaPedidos">
-                <!-- Los datos se cargarán aquí dinámicamente -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<!-- Modal Eliminar -->
-<div id="modalEliminar" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Eliminar Pedido</h2>
-        <input type="text" id="idEliminar" class="input-field" placeholder="Ingrese ID del Pedido">
-        <button class="btn" id="buscarEliminar">Buscar</button>
-        <button class="btn-danger" id="buscarEliminar">Eliminar</button>
-        <table>
-            <thead>
-                <tr>
-                    <th>ID Pedido</th>
-                    <th>Estado</th>
-                    <th>ID Cliente</th>
-                    <th>ID Vendedor</th>
-                    <th>ID Pago</th>
-                    <th>Metodo Pago</th>
-                </tr>
-            </thead>
-            <tbody id="tablaEliminar">
-                <!-- Los datos se cargarán aquí dinámicamente -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script>
-    document.getElementById("listarPedido").addEventListener("click", function() {
-        const modal = document.getElementById("modalListar");
-        const tabla = document.getElementById("tablaPedidos");
-
-        // Mostrar el modal
-        modal.style.display = "block";
-
-        // Cargar datos desde la base de datos
-        fetch('listarPedidos.php')
-            .then(response => response.json())
-            .then(data => {
-                tabla.innerHTML = '';
-                data.forEach(pedido => {
-                    const row = `<tr>
-                        <td>${pedido.id_pedido}</td>
-                        <td>${pedido.estado}</td>
-                        <td>${pedido.id_cliente}</td>
-                        <td>${pedido.id_vendedor}</td>
-                        <td>${pedido.id_pago}</td>
-                        <td>${pedido.metodo_pago}</td>
-                    </tr>`;
-                    tabla.innerHTML += row;
-                });
-            })
-            .catch(error => console.error('Error:', error));
-    });
-
-    // Botón para eliminar pedidos
-    document.getElementById("eliminarPedido").addEventListener("click", function() {
-        const modal = document.getElementById("modalEliminar");
-        modal.style.display = "block";
-    });
-
-    document.getElementById("buscarEliminar").addEventListener("click", function() {
-    const id = document.getElementById("idEliminar").value.trim(); // Elimina espacios extra
-    const tabla = document.getElementById("tablaEliminar");
-
-    // Validar que el ID no esté vacío
-    if (!id) {
-        alert("Por favor ingresa un ID válido.");
-        return; // Detener la ejecución si no hay un ID
-    }
-
-    console.log("Buscando pedido con ID:", id); // Verifica que el ID sea correcto
-
-    // Realizar la búsqueda del pedido
-    fetch(`buscarPedido.php?id=${id}`)
-        .then(response => response.json())
-        .then(data => {
-            tabla.innerHTML = ''; // Limpiar la tabla antes de agregar los datos
-            if (data) {
-                // Si se encuentra el pedido, lo mostramos en la tabla
-                const row = `<tr>
-                    <td>${data.id_pedido}</td>
-                    <td>${data.estado}</td>
-                    <td>${data.id_cliente}</td>
-                    <td>${data.id_vendedor}</td>
-                    <td>${data.id_pago}</td>
-                    <td>${data.metodo_pago}</td>
-                </tr>`;
-                tabla.innerHTML += row;
-            } else {
-                // Si no se encuentra el pedido, mostrar un mensaje en la tabla
-                tabla.innerHTML = '<tr><td colspan="6">No se encontró el pedido</td></tr>';
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Hubo un error al realizar la búsqueda.');
-        });
-});
-
-
-
-    // Cerrar los modales
-    document.querySelectorAll(".close").forEach(button => {
-        button.addEventListener("click", function() {
-            button.closest(".modal").style.display = "none";
-        });
-    });
-
-    // Cerrar el modal si se hace clic fuera del contenido
-    window.onclick = function(event) {
-        const modals = document.querySelectorAll(".modal");
-        modals.forEach(modal => {
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        });
-    };
-</script>
 </body>
 </html>
