@@ -2,12 +2,10 @@
 // Incluye la conexión a la base de datos
 include 'db.php';
 //MODIFICARRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRRR 
-// Consulta para obtener los datos del pedido
-$sql = "SELECT v.id_vendedor, v.nombre, v.direccion, c.longitud, c.latitud 
-        FROM vendedor v
-        INNER JOIN coordenadas c ON v.id_coordenada = c.id_coordenada";
-
+// Consulta a la base de datos
+$sql = "SELECT id_pedido, estado, id_cliente, id_vendedor, id_pago, metodo_pago FROM pedido";
 $result = $conn->query($sql);
+
 ?>
 
 <!DOCTYPE html>
@@ -103,18 +101,18 @@ $result = $conn->query($sql);
                         // Genera filas dinámicamente
                         while ($row = $result->fetch_assoc()) {
                             echo "<tr>
+                                <td>{$row['id_pedido']}</td>
+                                <td>{$row['id_cliente']}</td>
                                 <td>{$row['id_vendedor']}</td>
-                                <td>" . htmlspecialchars($row['nombre']) . "</td>
-                                <td>" . htmlspecialchars($row['direccion']) . "</td>
-                                <td>{$row['longitud']}</td>
-                                <td>{$row['latitud']}</td>
+                                <td>" . htmlspecialchars($row['estado']) . "</td>
+                                <td>{$row['id_pago']}</td>
                                 <td>
-                                    <a href='vendedorModificar.php?id={$row['id_vendedor']}'>
+                                    <a href='vendedorModificar.php?id={$row['id_pedido']}'>
                                         <img src='avatar-de-usuario.png' alt='Modificar' class='icono-accion'>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href='vendedorEliminar.php?id={$row['id_vendedor']}'>
+                                    <a href='vendedorEliminar.php?id={$row['id_pedido']}'>
                                         <img src='borrar-usuario.png' alt='Eliminar' class='icono-accion'>
                                     </a>
                                 </td>
