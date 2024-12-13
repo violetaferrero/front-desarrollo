@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>INICIO</h1>
+    
     <div class="container">
         <div class="botones-menu"> 
             <button type="button" id="Vendedor" onclick="location.href='vendedor.php'">MENÚ VENDEDOR</button>
@@ -17,5 +18,9 @@
     </div>
     <img src="logo.png" alt="logo" class="logo">
 </div>
+<div class="caratula">
+    <p>TRABAJO PRÁCTICO | DESARROLLO DE SOFTWARE | APLICACIÓN DE DELIVERY</p>
+    <p>Integrantes: Garcia Nicolas, Ferrero Violeta, Sanchez Zeniquel Tomas, Sola Joaquin, Stoppello Roth Angela</p>
+    </div>
 </body>
 </html>
